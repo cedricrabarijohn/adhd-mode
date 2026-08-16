@@ -1,5 +1,5 @@
 ---
-name: explain-simply
+name: adhd-mode
 description: >
   Explain something in short, chunked, ADHD-friendly steps instead of dense prose.
   Use whenever the user asks what was done, how something works, or why a choice was
