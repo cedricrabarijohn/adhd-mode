@@ -22,11 +22,11 @@ Same content. Half the effort to read.
 
 ```bash
 git clone https://github.com/cedricrabarijohn/adhd-mode.git
-cp -r adhd-mode/explain-simply ~/.claude/skills/explain-simply
+cp -r adhd-mode/adhd-mode ~/.claude/skills/adhd-mode
 ```
 
 Claude picks it up automatically. No config, no restart.
 
 ## The rules
 
-See [`explain-simply/SKILL.md`](explain-simply/SKILL.md).
+See [`adhd-mode/SKILL.md`](adhd-mode/SKILL.md).
