@@ -27,6 +27,22 @@ cp -r adhd-mode/adhd-mode ~/.claude/skills/adhd-mode
 
 Claude picks it up automatically. No config, no restart.
 
+## Avoid invoking it every time
+
+You do **not** need to run `adhd-mode` manually on every prompt after installation.
+
+Claude can auto-select this skill from its description when your request asks for:
+- simpler explanations
+- shorter/chunked responses
+- ADHD/focus-friendly formatting
+
+If you want it to be your default style even when you do not ask explicitly, add this to
+`~/.claude/CLAUDE.md`:
+
+```md
+Always explain in adhd-mode style (short, chunked, numbered when useful) unless I ask for a different style.
+```
+
 ## The rules
 
 See [`adhd-mode/SKILL.md`](adhd-mode/SKILL.md).
