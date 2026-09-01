@@ -4,17 +4,19 @@ A Claude Code skill. Makes Claude explain things in short, chunked steps instead
 
 **Without it:**
 
-> The verification pass exposed that the rule I wrote — "value size follows the column width" — was a post-hoc rationalization that happened to predict mobile correctly but didn't describe what actually drove the desktop choices, so it's really two rules: a floor, and a weight rule.
+> The CI failure came from dependency cache drift: our cache key didn't include the lockfile hash, so the runner restored stale `node_modules`; local tests still passed because local installs were fresh, which made the breakage look non-deterministic.
 
 **With it:**
 
-> **I got a rule wrong.**
+> **CI used stale dependencies.**
 >
-> I wrote: "number size follows the column width." Then I drew it, and it was wrong.
+> Our cache key missed the lockfile hash.
 >
-> The real rule is two things:
-> 1. Does it fit? If not, smaller.
-> 2. Is it crowded? If yes, smaller.
+> So CI restored old `node_modules`.
+>
+> Local passed because local installs were fresh.
+>
+> Fix: include the lockfile hash in the cache key.
 
 Same content. Half the effort to read.
 

@@ -50,23 +50,21 @@ explaining the work instead of the outcome.
 
 Too dense:
 
-> The verification pass exposed that the rule I wrote — "value size follows the column
-> width" — was a post-hoc rationalization that happened to predict mobile correctly but
-> didn't describe what actually drove the desktop choices, so it's really two rules: a
-> floor, and a weight rule.
+> The CI failure came from dependency cache drift: our cache key didn't include the
+> lockfile hash, so the runner restored stale `node_modules`; local tests still passed
+> because local installs were fresh, which made the breakage look non-deterministic.
 
 Right shape:
 
-> **I got a rule wrong.**
+> **CI used stale dependencies.**
 >
-> I wrote: "number size follows the column width."
+> Our cache key missed the lockfile hash.
 >
-> Then I drew it, and it was wrong. It works on phone by accident, not because the rule
-> is right.
+> So CI restored old `node_modules`.
 >
-> The real rule is two things:
-> 1. Does it fit? If not, smaller.
-> 2. Is it crowded (caption, image nearby)? If yes, smaller.
+> Local passed because local installs were fresh.
+>
+> Fix: include the lockfile hash in the cache key.
 
 Same content. Half the effort to read.
 
